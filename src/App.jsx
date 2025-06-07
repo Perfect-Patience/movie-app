@@ -1,18 +1,35 @@
-
-
-import './App.css'
-import NavBar from './components/NavBar'
-import HomePage from './pages/HomePage'
+import RouteLayout from "./components/RouteLayout";
+import MoviesPage from "./pages/MoviesPage";
+import SeriesPage from "./pages/SeriesPage";
+import "./App.css";
+import NavBar from "./components/NavBar";
+import HomePage from "./pages/HomePage";
+import { createBrowserRouter, Router, RouterProvider } from "react-router";
 
 function App() {
- 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      Component: RouteLayout,
+      children: [
+        {
+          path: "/",
+          Component: HomePage,
+        },
+        {
+          path: "movies",
+          Component: MoviesPage,
+        },
+        {
+          path: "series",
+          Component: SeriesPage,
+        },
+      ],
+    },
+  ]);
   return (
-    <><div className='w-full h-screen bg-[url("src/assets/sample.jpg")] flex flex-col  bg-no-repeat bg-cover bg-center'>
-     <NavBar />
-    <HomePage />
-    </div>
-    </>
-  )
+   <RouterProvider router={router}/>
+  );
 }
 
-export default App
+export default App;

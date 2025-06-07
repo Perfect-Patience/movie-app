@@ -1,14 +1,16 @@
 import React from "react";
+import { NavLink } from "react-router";
 
 function NavBar() {
   return (
-    <nav className="flex  justify-between text-white bg-transparent px-15 py-5 text-2xl ">
+    <nav className="flex  justify-between text-white bg-transparent px-15 py-5 text-2xl absolute top-0 left-0 w-full">
       <div className="">EP Movies</div>
       
         <ul className="flex space-x-4">
-            <li>Home</li>
-            <li>Movies</li>
-            <li>Series</li>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="movies">Movies</NavLink>
+            <NavLink to="/series">Series</NavLink>
+           
         </ul>
     </nav>
   );
