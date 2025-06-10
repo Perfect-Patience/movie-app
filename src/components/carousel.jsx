@@ -29,7 +29,7 @@ function Carousel({ trending }) {
               style={{ backgroundImage: `url(${bgURl})` }}
               className={`w-screen h-screen flex-shrink-0 bg-cover bg-no-repeat bg-center relative  flex items-center `}
             >
-              <div className="absolute top-0 left-0 w-full h-screen bg-black opacity-75 z-0"></div>
+              <div className="absolute top-0 left-0 w-full h-screen bg-gray-800 opacity-75 z-0"></div>
               <div className=" w-screen z-40 flex justify-between text-white h-fit  p-20 ">
                 <div className="w-1/2 flex flex-col gap-10 ">
                   <h2 className="text-6xl font-bold font-serif">{movie.title ? movie.title : movie.name }</h2>
@@ -38,7 +38,7 @@ function Carousel({ trending }) {
                    {movie.overview}
                   </p>
                   <div className="flex gap-6">
-                    <button className="bg-red-700 px-4 cursor-pointer py-2 rounded-4xl text-xl ">
+                    <button className="bg-pink-300 px-4 cursor-pointer py-2 rounded-4xl text-xl text-gray-800 ">
                       Watch Now
                     </button>
                     <button className="bg-none border-2 cursor-pointer border-white px-4 py-3 rounded-4xl text-xl">

@@ -4,11 +4,11 @@ import { NavLink } from "react-router";
 function NavBar() {
   return (
     <nav className="flex  justify-between z-50 text-white bg-transparent px-15 py-5 text-2xl absolute top-0 left-0 w-full">
-      <div className="">EM Movies</div>
+      <div >EM Movies</div>
       
         <ul className="flex space-x-4">
-            <NavLink to="/">Home</NavLink>
-            <NavLink to="movies">Movies</NavLink>
+            <NavLink to="">Home</NavLink>
+            <NavLink to="/movies">Movies</NavLink>
             <NavLink to="/series">Series</NavLink>
            
         </ul>
