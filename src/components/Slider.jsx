@@ -9,7 +9,7 @@ function Slider({ movies, heading }) {
     }
 
     function scrollRight(){
-        setCurr(curr >= movies.length - 1? 0: curr + 1)
+        setCurr(curr >= movies.length - 5? 0: curr + 1)
     }
 
   return (
