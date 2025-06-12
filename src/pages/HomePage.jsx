@@ -2,11 +2,13 @@ import React from "react";
 import Carousel from "../components/Carousel";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Slider from "../components/Slider"
+import Slider from "../components/Slider";
+import Tile from "../components/Tile";
 
 function HomePage() {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [topRated, setTopRated] = useState([]);
+  const [upcomming, setUpcomming] = useState([]);
   const [isLoading, setLoading] = useState(true)
 
   async function getMovies(url, setter) {
@@ -35,7 +37,9 @@ function HomePage() {
 
   useEffect(() => {
     getMovies("https://api.themoviedb.org/3/trending/all/day", setTrendingMovies);
-    getMovies("https://api.themoviedb.org/3/movie/top_rated", setTopRated)
+    getMovies("https://api.themoviedb.org/3/movie/top_rated", setTopRated);
+    getMovies("https://api.themoviedb.org/3/movie/upcoming", setUpcomming)
+
 
   }, []);
 
@@ -49,7 +53,16 @@ function HomePage() {
        {
         topRated ? <Slider movies={topRated} heading={"Top Rated"}/>: null
       }
-
+      <section className="w-full h-fit p-10">
+        <p className="text-amber-300 text-3xl">UpComming</p>
+        <div className="flex flex-wrap p-6 gap-10 justify-between">
+      {upcomming? upcomming.map((movie) =>{
+        return (
+          <Tile movie={movie}/>
+        );
+      }) : null}
+      </div>
+      </section>
 
     
     </div>
