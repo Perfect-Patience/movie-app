@@ -54,7 +54,7 @@ function HomePage() {
         topRated ? <Slider movies={topRated} heading={"Top Rated"}/>: null
       }
       <section className="w-full h-fit p-10">
-        <p className="text-amber-300 text-3xl">UpComming</p>
+        <p className="text-amber-300 text-2xl">UpComming</p>
         <div className="flex flex-wrap p-6 gap-10 justify-between">
       {upcomming? upcomming.map((movie) =>{
         return (
