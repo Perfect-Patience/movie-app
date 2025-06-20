@@ -14,7 +14,7 @@ function Carousel({ trending }) {
   }
 
   return (
-    <div className="w-screen h-screen relative overflow-hidden flex justify-between items-center ">
+    <div className="w-screen h-screen py-20 relative overflow-hidden flex justify-between items-center ">
       <button onClick={() => handlePrevious(currentIndex)} className=" h-[4rem] w-[4rem] absolute  z-50 left-0 hover:opacity-100 cursor-pointer bg-gray-900 opacity-50 rounded-full grid place-items-center text-2xl text-white">
         <FaLessThan />
       </button>
@@ -24,15 +24,15 @@ function Carousel({ trending }) {
           const isActive = index === currentIndex;
           const bgURl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
           return (
-            <div
+            <div 
               key={movie.id}
               style={{ backgroundImage: `url(${bgURl})` }}
-              className={`w-screen h-screen flex-shrink-0 bg-cover bg-no-repeat bg-center relative  flex items-center `}
+              className={`w-screen h-screen flex-shrink-0 bg-cover py-30 bg-no-repeat bg-center relative  flex items-center `}
             >
-              <div className="absolute top-0 left-0 w-full h-screen bg-gray-800 opacity-75 z-0"></div>
-              <div className=" w-screen z-40 flex justify-between text-white h-fit  p-20 ">
+              <div className="absolute top-0 left-0 w-full h-screen  bg-gray-800 opacity-75 z-0"></div>
+              <div className=" w-screen z-40 flex justify-between text-white h-fit  px-20 py-40 ">
                 <div className="w-1/2 flex flex-col gap-10 ">
-                  <h2 className="text-6xl font-bold font-serif">{movie.title ? movie.title : movie.name }</h2>
+                  <h2 className="text-6xl font-bold my-10 font-serif">{movie.title ? movie.title : movie.name }</h2>
 
                   <p className="text-xl">
                    {movie.overview}
@@ -46,7 +46,7 @@ function Carousel({ trending }) {
                     </button>
                   </div>
                 </div>
-                <div className="w-1/2 flex justify-end">
+                <div className="w-1/2 h-full flex justify-end">
                   <img
                     src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                     alt={movie.title}

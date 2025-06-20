@@ -6,6 +6,7 @@ function RouteLayout() {
   return (
     <div>
         <NavBar/>
+        
         <Outlet/>
     </div>
   )

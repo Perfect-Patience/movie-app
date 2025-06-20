@@ -45,7 +45,7 @@ function HomePage() {
 
   return (
     <div className="w-screen h-fit bg-gray-800">
-      {isLoading? <h2 className="text-amber-700 text-3xl">Loading.....</h2> :  <Carousel trending={trendingMovies} /> }
+        <Carousel trending={trendingMovies} /> 
       {
         trendingMovies ? <Slider movies={trendingMovies} heading={"Trending"}/>: null
       }
