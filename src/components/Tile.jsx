@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { FaStarHalfAlt } from "react-icons/fa";
 function Tile({movie}) {
   return (
     <div className='w-[15rem] '>
@@ -11,7 +11,11 @@ function Tile({movie}) {
 
                 </div>
         </div>
-        <p className='text-white text-xl mt-1' >{movie.title? movie.title : movie.name}</p>
+        <div className='flex justify-between mt-1'>
+        <p className='text-white text-xl' >{movie.title? movie.title : movie.name}</p>
+                <p className='text-white text-xl flex gap-2 items-center'><FaStarHalfAlt />{movie.vote_average}</p>
+                {console.log(movie)}
+        </div>
     </div>
   )
 }

@@ -34,7 +34,7 @@ function Carousel({ trending }) {
                 <div className="w-1/2 flex flex-col gap-10 ">
                   <h2 className="text-6xl font-bold my-10 font-serif">{movie.title ? movie.title : movie.name }</h2>
 
-                  <p className="text-xl">
+                  <p className="text-md">
                    {movie.overview}
                   </p>
                   <div className="flex gap-6">
