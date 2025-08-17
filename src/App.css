@@ -11,3 +11,26 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+.sideDetails {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(128, 128, 128, 0.229);
+    padding: 1rem;
+    border-radius: 5px;
+
+
+
+}
+
+.sideDetails li{
+    display: flex;
+    gap: 1rem;
+
+}
+
+.sideDetails li span{
+    color: rgb(250, 179, 191)
+}

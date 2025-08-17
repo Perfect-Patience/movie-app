@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MdArrowForwardIos, MdArrowBackIos  } from "react-icons/md";
+import { NavLink } from "react-router";
 
 function Slider({ movies, heading }) {
 
@@ -20,7 +21,7 @@ function Slider({ movies, heading }) {
         {movies.map((movie, index) => {
             
           return (
-            <div
+            <NavLink  to={`${movie.media_type === "tv"? "series": movie.media_type}/${movie.id}`}
               key={movie.id}
               className="w-[12rem] h-[15rem] flex-shrink-0 flex transition ease duration-350 pb-5" style={{transform: `translateX(-${(curr * 13.9)}rem)`}}
             >
@@ -44,7 +45,7 @@ function Slider({ movies, heading }) {
                   movie.poster_path
                 }`}
               />
-            </div>
+            </NavLink>
           );
         })}
         <div className="absolute right-0 h-full bg-gray-800 pl-10 flex flex-col gap-2 py-4" ><button onClick={() => {scrollRight()}} className="bg-gray-700  cursor-pointer hover:border-2 hover:border-gray-100 opacity-55 h-1/2 text-white text-2xl grid place-items-center  px-3 rounded-md"><MdArrowForwardIos/></button>

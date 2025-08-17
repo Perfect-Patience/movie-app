@@ -49,7 +49,7 @@ function SeriesPage() {
   }, []);
 
   return (
-    <div className="bg-slate-950 min-w-screen min-h-screen pt-15">
+    <div className="bg-slate-800 min-w-screen min-h-screen pt-15">
       <section className="h-20 "></section>
 
       <section className="mt-10 px-15">
@@ -60,7 +60,7 @@ function SeriesPage() {
           </span>
         </p>
         {
-          nowPlaying? <Slider2 movies={nowPlaying} heading={""} subHeading={""}/>
+          nowPlaying? <Slider2 movies={nowPlaying} category={"series"}/>
           : <p>Loading...</p>
         }
       </section>
@@ -72,7 +72,7 @@ function SeriesPage() {
           </span>
         </p>
         {
-          onTheAir? <Slider2 movies={popular} heading={""} subHeading={""}/>
+          onTheAir? <Slider2 movies={popular} category={"series"}/>
           : <p>Loading...</p>
         }
       </section>
@@ -87,7 +87,7 @@ function SeriesPage() {
          {
           topRated? topRated.map((movie) =>{
         return (
-          <Tile movie={movie}/>
+          <Tile movie={movie} category={"series"}/>
         );
       }) : null}
        </div>
@@ -104,7 +104,7 @@ function SeriesPage() {
          {
           popular? popular.map((movie) =>{
         return (
-          <Tile movie={movie}/>
+          <Tile movie={movie} category={"series"}/>
         );
       }) : null}
        </div>

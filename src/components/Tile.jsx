@@ -1,8 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router';
+
+
 import { FaStarHalfAlt } from "react-icons/fa";
-function Tile({movie}) {
+function Tile({movie ,category}) {
+  const navigate = useNavigate()
   return (
-    <div className='w-[15rem] '>
+    <div className='w-[15rem]  hover:scale-105' onClick={() => navigate(`/${category}/${movie.id}`)}>
         <div className='relative'>
         <img className="object-cover rounded-2xl" src={`${import.meta.env.VITE_TMDB_API_IMAGE}${
                   movie.poster_path

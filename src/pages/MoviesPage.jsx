@@ -49,7 +49,7 @@ function MoviesPage() {
   }, []);
 
   return (
-    <div className="bg-slate-950 min-w-screen min-h-screen pt-15">
+    <div className="bg-slate-800 min-w-screen min-h-screen pt-15">
       <section className="h-20 "></section>
 
       <section className="mt-10 px-15">
@@ -60,7 +60,7 @@ function MoviesPage() {
           </span>
         </p>
         {
-          nowPlaying? <Slider2 movies={nowPlaying} heading={""} subHeading={""}/>
+          nowPlaying? <Slider2 movies={nowPlaying} category={"movie"}/>
           : <p>Loading...</p>
         }
       </section>
@@ -72,7 +72,7 @@ function MoviesPage() {
           </span>
         </p>
         {
-          popular? <Slider2 movies={popular} heading={""} subHeading={""}/>
+          popular? <Slider2 movies={popular} category={"movie"}/>
           : <p>Loading...</p>
         }
       </section>
@@ -83,11 +83,11 @@ function MoviesPage() {
             <MdArrowForwardIos />
           </span>
         </p>
-       <div className="flex gap-5 flex-wrap justify-around">
+       <div className="flex gap-10 flex-wrap justify-evenly">
          {
           topRated? topRated.map((movie) =>{
         return (
-          <Tile movie={movie}/>
+          <Tile movie={movie} category={"movie"}/>
         );
       }) : null}
        </div>
@@ -100,11 +100,11 @@ function MoviesPage() {
             <MdArrowForwardIos />
           </span>
         </p>
-       <div className="flex gap-5 flex-wrap justify-around">
+       <div className="flex gap-10 flex-wrap justify-evenly">
          {
           upcomming? upcomming.map((movie) =>{
         return (
-          <Tile movie={movie}/>
+          <Tile movie={movie} category={"movie"}/>
         );
       }) : null}
        </div>

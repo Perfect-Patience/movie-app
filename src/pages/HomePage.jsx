@@ -62,14 +62,14 @@ function HomePage() {
         <NavLink className={`text-lg text-white bg-gray-700 px-3 py-0.5 flex items-center h-fit rounded-2xl hover:bg-pink-600`} to={"movies"}>View more</NavLink>
       </div>
        {
-        topRatedMovies ? <Slider2 movies={topRatedMovies}/>: null
+        topRatedMovies ? <Slider2 movies={topRatedMovies} category={"movies"}/>: null
       }
       <div className="flex justify-between items-center px-10">
         <h3 className="text-2xl text-amber-200 mb-5">TV <span className="text-lg text-white">- Top Rated</span></h3>
         <NavLink className={`text-lg text-white bg-gray-700 px-3 py-0.5 flex items-center h-fit rounded-2xl hover:bg-pink-600`} to={"movies"}>View more</NavLink>
       </div>
        {
-        topRatedSeries ? <Slider2 movies={topRatedSeries} heading={"Series"} subHeading={"Top Rated"}/>: null
+        topRatedSeries ? <Slider2 movies={topRatedSeries} category={"series"}/>: null
       }
       <section className="w-full h-fit p-10">
         <p className="text-amber-300 text-2xl">Airing Today</p>
@@ -78,7 +78,7 @@ function HomePage() {
       {airingTodayTV? airingTodayTV.map((movie) =>{
        
         return (
-          <Tile movie={movie}/>
+          <Tile movie={movie} category={"series"}/>
         );
       }) : null}
       </div>
@@ -86,11 +86,11 @@ function HomePage() {
 
       <section className="w-full h-fit p-10">
         <p className="text-amber-300 text-2xl">Upcoming</p>
-        <div className="flex flex-wrap p-6 gap-10 justify-between">
+        <div className="flex flex-wrap p-6 gap-10 justify-around">
       
       {upcomming? upcomming.map((movie) =>{
         return (
-          <Tile movie={movie}/>
+          <Tile movie={movie} category={"movie"}/>
         );
       }) : null}
       </div>

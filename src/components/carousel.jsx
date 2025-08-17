@@ -1,5 +1,6 @@
 import { FaLessThan, FaGreaterThan } from "react-icons/fa6";
 import React, { useState } from "react";
+import { NavLink } from "react-router";
 import { useEffect } from "react";
 function Carousel({ trending }) {
   const slides = trending.slice(0, 8);
@@ -23,6 +24,8 @@ function Carousel({ trending }) {
 
     return () => clearInterval(interval); 
   }, [maxIndex]);
+
+  console.log(slides)
 
   return (
     <div className="max-w-screen h-screen py-20 relative overflow-hidden flex justify-between items-center ">
@@ -48,12 +51,12 @@ function Carousel({ trending }) {
                    {movie.overview}
                   </p>
                   <div className="flex flex-wrap gap-6">
-                    <button className="bg-pink-300 py-3 cursor-pointer w-64 rounded-4xl text-xl text-gray-800 ">
+                    <NavLink to={`${movie.media_type === "tv"? "series": movie.media_type}/${movie.id}`} className="bg-pink-300 py-3 cursor-pointer w-64 rounded-4xl text-xl text-center text-gray-800 ">
                       Watch Now
-                    </button>
-                    <button className="bg-none border-2 cursor-pointer border-white w-64 py-3 rounded-4xl text-xl">
+                    </NavLink>
+                    <NavLink to={`${movie.media_type === "tv"? "series": movie.media_type}/trailer/${movie.id}`} className="bg-none text-center border-2 cursor-pointer border-white w-64 py-3 rounded-4xl text-xl">
                       Watch Trailer
-                    </button>
+                    </NavLink>
                   </div>
                 </div>
                 <div className="lg:w-1/2 w-0 h-full flex justify-end">
