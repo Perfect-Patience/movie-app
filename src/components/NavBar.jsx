@@ -3,13 +3,13 @@ import { NavLink } from "react-router";
 
 function NavBar() {
   return (
-    <nav className="flex  justify-between z-50 text-white bg-transparent px-15 pt-5 pb-20 text-2xl absolute top-0 left-0 w-full">
+    <nav className="flex  justify-between z-50 text-white bg-transparent px-15 pt-5 pb-20 text-xl absolute top-0 left-0 w-full">
       <div >EM Movies</div>
       
-        <ul className="flex space-x-4">
-            <NavLink to="">Home</NavLink>
-            <NavLink to="/movies">Movies</NavLink>
-            <NavLink to="/series">Series</NavLink>
+        <ul className="flex space-x-4 font-semibold ">
+            <NavLink to="/" className={``}>Home</NavLink>
+            <NavLink to="/movies" className={``}>Movies</NavLink>
+            <NavLink to="/series" className={``}>Series</NavLink>
            
         </ul>
     </nav>

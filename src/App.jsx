@@ -1,10 +1,11 @@
-import RouteLayout from "./components/RouteLayout";
+import RouteLayout from "./layout/RouteLayout";
 import MoviesPage from "./pages/MoviesPage";
 import SeriesPage from "./pages/SeriesPage";
 import "./App.css";
-import NavBar from "./components/NavBar";
 import HomePage from "./pages/HomePage";
 import { createBrowserRouter, Router, RouterProvider } from "react-router";
+import Details from "./pages/Details";
+import seriesLayout from "./layout/seriesLayout";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +23,17 @@ function App() {
         },
         {
           path: "series",
-          Component: SeriesPage,
+          Component: seriesLayout,
+          children:[
+            {
+              index: true,
+              Component: SeriesPage,
+            },
+            {
+              path: ":id",
+              Component: Details
+            }
+          ]
         },
       ],
     },
