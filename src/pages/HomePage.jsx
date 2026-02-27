@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Slider from "../components/Slider";
 import Tile from "../components/Tile";
 import Slider2 from "../components/Slider2";
-import { NavLink } from "react-router";
+import { NavLink, useFetcher } from "react-router";
 
 function HomePage() {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -13,6 +13,7 @@ function HomePage() {
   const [topRatedSeries, setTopRatedSeries] = useState([]);
   const [upcomming, setUpcomming] = useState([]);
   const [airingTodayTV, setAiringTodayTV] = useState([]);
+  const [customTopRated, setCustomTopRated] = useState([]);
 
   const [isLoading, setLoading] = useState(true)
 
@@ -47,33 +48,44 @@ function HomePage() {
     getMovies("https://api.themoviedb.org/3/movie/upcoming", setUpcomming);
     getMovies("https://api.themoviedb.org/3/tv/airing_today?", setAiringTodayTV);
 
-
   }, []);
+
+  // logic here is to combine the top rated series and movies. then sort them based on rating to display them together.
+  // to enable routing to the appopriate page  later, media_type field is added to the object
+  useEffect(() => {
+  setCustomTopRated([...topRatedMovies.map(movie => ({
+    ...movie, media_type : 'movie'
+  })), ...topRatedSeries.map(series => ({
+    ...series , 
+    media_type : "series"
+  }))])
+    
+  }, [topRatedMovies, topRatedSeries])
+
+
+  console.log(customTopRated)
+
 
   return (
     <div className="w-screen h-fit bg-slate-800">
+      {/* carousel section */}
         <Carousel trending={trendingMovies} /> 
       {
         trendingMovies ? <Slider movies={trendingMovies} heading={"Trending"}/>: null
       }
-
-        <div className="flex justify-between items-center px-10">
-        <h3 className="text-2xl text-amber-200 mb-5">Movies <span className="text-lg text-white">- Top Rated</span></h3>
+  {/* top rated movies and series */}
+        <div className="flex justify-between items-center md:px-10 px-5 ">
+        <h3 className="text-2xl text-white font-bold">Top Rated</h3>
         <NavLink className={`text-lg text-white bg-gray-700 px-3 py-0.5 flex items-center h-fit rounded-2xl hover:bg-pink-600`} to={"movies"}>View more</NavLink>
       </div>
        {
-        topRatedMovies ? <Slider2 movies={topRatedMovies} category={"movies"}/>: null
+        customTopRated ? <Slider2 movies={customTopRated.sort((a,b) => b.vote_average - a.vote_average)}/>: null
       }
-      <div className="flex justify-between items-center px-10">
-        <h3 className="text-2xl text-amber-200 mb-5">TV <span className="text-lg text-white">- Top Rated</span></h3>
-        <NavLink className={`text-lg text-white bg-gray-700 px-3 py-0.5 flex items-center h-fit rounded-2xl hover:bg-pink-600`} to={"movies"}>View more</NavLink>
-      </div>
-       {
-        topRatedSeries ? <Slider2 movies={topRatedSeries} category={"series"}/>: null
-      }
-      <section className="w-full h-fit p-10">
-        <p className="text-amber-300 text-2xl">Airing Today</p>
-        <div className="flex flex-wrap p-6 gap-10 justify-between">
+     
+     {/* airing today section */}
+      <section className="w-[100vw] h-fit md:px-10 px-5 pt-5">
+        <p className="text-white text-2xl font-bold">Airing Today</p>
+        <div className="flex flex-wrap p-6 gap-x-5 gap-y-15 ">
       
       {airingTodayTV? airingTodayTV.map((movie) =>{
        

@@ -1,11 +1,12 @@
 import { useRef } from "react";
 import { FaGreaterThan, FaLessThan } from "react-icons/fa6";
-import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
+import { BsDot } from "react-icons/bs";
 import { NavLink, useNavigate } from "react-router";
 
-function Slider2({ movies, category }) {
+function Slider2({ movies }) {
   const navigate = useNavigate();
   const scrollRef = useRef(null)
+  
 
    function scrollLeft() {
     if (scrollRef.current) {
@@ -27,23 +28,27 @@ function Slider2({ movies, category }) {
   return (
     <div className="m-10 relative">
       <div onClick={() => scrollLeft()} className="text-white 2xl absolute -left-7 top-[35%] z-50 w-10 h-10 bg-gray-800 hover:bg-gray-700 cursor-pointer rounded-full flex items-center justify-center"><FaLessThan className="self-center"/></div>
-      <div className="flex gap-4  overflow-x-scroll relative scrollbar-hide scroll-smooth  " ref={scrollRef}>
+      <div className="flex md:gap-4 overflow-x-scroll relative scrollbar-hide scroll-smooth  " ref={scrollRef}>
         {movies.map((movie) => {
           return (
             <div
               className=" flex transition ease duration-350 hover:scale-105 cursor-pointer"
-              onClick={() => navigate(`/${category}/${movie.id}`)}
+              onClick={() => navigate(`/${movie.media_type}/${movie.id}`)}
             >
-              <div key={movie.id} className="w-[18rem] h-fit flex-shrink-0">
+              <div key={movie.id} className="md:w-[22rem] w-[calc(100vw-80px)]  h-fit flex-shrink-0">
                 <img
-                  className="w-[100%] h-[10rem] object-cover rounded-lg"
+                  className="w-[100%] md:h-[14rem] h-[12rem] object-cover rounded-lg"
                   src={`${import.meta.env.VITE_TMDB_API_IMAGE}${
                     movie.backdrop_path
                   }`}
                 />
-                <p className="text-white text-lg truncate">
+                <div className="flex items-center gap-1">
+                  <p className="text-white text-lg truncate">
                   {movie.title ? movie.title : movie.name}
                 </p>
+                <BsDot className="text-xl text-slate-300 font-bold"/>
+                <span className="text-slate-500 text-xl">{movie.media_type}</span>
+                 </div>
               </div>
             </div>
           );
