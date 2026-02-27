@@ -83,9 +83,9 @@ function HomePage() {
       }
      
      {/* airing today section */}
-      <section className="w-[100vw] h-fit md:px-10 px-5 pt-5">
-        <p className="text-white text-2xl font-bold">Airing Today</p>
-        <div className="flex flex-wrap p-6 gap-x-5 gap-y-15 ">
+      <section className="w-[100vw] h-fit md:px-10 pt-5">
+        <p className="text-white text-2xl font-bold px-5 md:px-0">Airing Today</p>
+        <div className="flex flex-wrap justify-center py-6 md:gap-x-5 gap-2 md:gap-y-15 ">
       
       {airingTodayTV? airingTodayTV.map((movie) =>{
        
@@ -95,10 +95,10 @@ function HomePage() {
       }) : null}
       </div>
       </section>
-
-      <section className="w-full h-fit p-10">
-        <p className="text-amber-300 text-2xl">Upcoming</p>
-        <div className="flex flex-wrap p-6 gap-10 justify-around">
+{/* upcoming */}
+      <section className="w-[100vw] h-fit md:px-10 pt-5">
+        <p className="text-white font-bold text-2xl px-5 md:px-0">Upcoming</p>
+        <div className="flex flex-wrap  justify-center py-6 md:gap-x-5 gap-2 md:gap-y-15">
       
       {upcomming? upcomming.map((movie) =>{
         return (

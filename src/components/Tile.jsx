@@ -10,7 +10,7 @@ function Tile({movie ,category}) {
 
   
   return (
-    <div className={`w-[15rem] group cursor-pointer`} onClick={() => navigate(`/${category}/${movie.id}`)}>
+    <div className={`md:w-[15rem] w-[7rem] group cursor-pointer`} onClick={() => navigate(`/${category}/${movie.id}`)}>
         <div className='relative'>
         <img className="object-cover rounded-xl" src={`${import.meta.env.VITE_TMDB_API_IMAGE}${
                   movie.poster_path
@@ -30,8 +30,8 @@ function Tile({movie ,category}) {
                 
         </div>
         <div className='flex justify-between gap-2 mt-1'>
-        <p className='text-white truncate' >{movie.title? movie.title : movie.name}</p>
-                <p className='text-slate-400 text-sm flex gap-2 items-center'><FaStarHalfAlt />{movie.vote_average}</p>
+        <p className='text-white truncate md:text-base text-xs' >{movie.title? movie.title : movie.name}</p>
+                <p className='text-slate-400 md:text-sm  md:flex gap-2 items-center hidden '><FaStarHalfAlt />{movie.vote_average}</p>
                
         </div>
     </div>

@@ -28,7 +28,7 @@ function Slider2({ movies }) {
   return (
     <div className="m-10 relative">
       <div onClick={() => scrollLeft()} className="text-white 2xl absolute -left-7 top-[35%] z-50 w-10 h-10 bg-gray-800 hover:bg-gray-700 cursor-pointer rounded-full flex items-center justify-center"><FaLessThan className="self-center"/></div>
-      <div className="flex md:gap-4 overflow-x-scroll relative scrollbar-hide scroll-smooth  " ref={scrollRef}>
+      <div className="flex md:gap-4 gap-1 overflow-x-scroll relative scrollbar-hide scroll-smooth  " ref={scrollRef}>
         {movies.map((movie) => {
           return (
             <div
