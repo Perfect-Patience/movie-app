@@ -182,7 +182,7 @@ function Details() {
     </div>
         </section>
 
-       <section className="mt-10 md:mx-10 mx-5">
+       <section className="mt-10 z-10 md:mx-10 mx-5">
   {casts.crew ? (
     <>
       <h4 className="text-3xl text-white mb-5">Crew</h4>

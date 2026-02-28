@@ -49,41 +49,41 @@ function MoviesPage() {
   }, []);
 
   return (
-    <div className="bg-slate-800 min-w-screen min-h-screen pt-15">
+    <div className="bg-slate-800 min-w-screen min-h-screen pt-5">
       <section className="h-20 "></section>
 
-      <section className="mt-10 px-15">
-        <p className="text-white text-2xl flex items-center gap-5">
+      <section className="mt-5 px-5">
+        <p className="text-white text-xl font-bold flex items-center gap-5">
           Now Showing{" "}
-          <span className="inline-block text-xl">
+          {/* <span className="inline-block text-xl">
             <MdArrowForwardIos />
-          </span>
+          </span> */}
         </p>
         {
           nowPlaying? <Slider2 movies={nowPlaying} category={"movie"}/>
           : <p>Loading...</p>
         }
       </section>
-      <section className="mt-10 px-15">
-        <p className="text-white text-2xl flex items-center gap-5">
+      <section className="mt-5 px-5">
+        <p className="text-white text-xl font-bold flex items-center gap-5">
           Popular{" "}
-          <span className="inline-block text-xl">
+          {/* <span className="inline-block text-xl">
             <MdArrowForwardIos />
-          </span>
+          </span> */}
         </p>
         {
           popular? <Slider2 movies={popular} category={"movie"}/>
           : <p>Loading...</p>
         }
       </section>
-      <section className="mt-10 px-15">
-        <p className="text-white text-2xl flex items-center gap-5 mb-10">
+      <section className="mt-5  px-5">
+        <p className="text-white text-xl font-bold flex items-center gap-5 mb-10">
           Top Rated{" "}
-          <span className="inline-block text-xl">
+          {/* <span className="inline-block text-xl">
             <MdArrowForwardIos />
-          </span>
+          </span> */}
         </p>
-       <div className="flex gap-10 flex-wrap justify-evenly">
+       <div className="flex gap-2 md:gap-y-15 md:gap-x-5 flex-wrap justify-center">
          {
           topRated? topRated.map((movie) =>{
         return (
@@ -93,14 +93,14 @@ function MoviesPage() {
        </div>
          
       </section>
-      <section className="mt-10 px-15">
-        <p className="text-white text-2xl flex items-center gap-5 mb-10">
+      <section className="mt-5 px-5">
+        <p className="text-white text-xl font-bold flex items-center gap-5 mb-10">
           Upcomming{" "}
-          <span className="inline-block text-xl">
+          {/* <span className="inline-block text-xl">
             <MdArrowForwardIos />
-          </span>
+          </span> */}
         </p>
-       <div className="flex gap-10 flex-wrap justify-evenly">
+       <div className="flex gap-2 md:gap-y-15 md:gap-x-5  flex-wrap justify-center">
          {
           upcomming? upcomming.map((movie) =>{
         return (

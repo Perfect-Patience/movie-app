@@ -3,10 +3,10 @@ import { FaGreaterThan, FaLessThan } from "react-icons/fa6";
 import { BsDot } from "react-icons/bs";
 import { NavLink, useNavigate } from "react-router";
 
-function Slider2({ movies }) {
+function Slider2({ movies, category }) {
   const navigate = useNavigate();
   const scrollRef = useRef(null)
-  
+  const media_type = category? category : null;
 
    function scrollLeft() {
     if (scrollRef.current) {
@@ -27,13 +27,13 @@ function Slider2({ movies }) {
 
   return (
     <div className="m-10 relative">
-      <div onClick={() => scrollLeft()} className="text-white 2xl absolute -left-7 top-[35%] z-50 w-10 h-10 bg-gray-800 hover:bg-gray-700 cursor-pointer rounded-full flex items-center justify-center"><FaLessThan className="self-center"/></div>
+      <div onClick={() => scrollLeft()} className="text-white 2xl absolute -left-7 top-[35%] z-10 w-10 h-10 bg-gray-800 hover:bg-gray-700 cursor-pointer rounded-full flex items-center justify-center"><FaLessThan className="self-center"/></div>
       <div className="flex md:gap-4 gap-1 overflow-x-scroll relative scrollbar-hide scroll-smooth  " ref={scrollRef}>
         {movies.map((movie) => {
           return (
             <div
               className=" flex transition ease duration-350 hover:scale-105 cursor-pointer"
-              onClick={() => navigate(`/${movie.media_type}/${movie.id}`)}
+              onClick={() => navigate(`/${movie.media_type? movie.media_type : media_type}/${movie.id}`)}
             >
               <div key={movie.id} className="md:w-[22rem] w-[calc(100vw-80px)]  h-fit flex-shrink-0">
                 <img
@@ -54,7 +54,7 @@ function Slider2({ movies }) {
           );
         })}
       </div>
-           <div onClick={() => scrollRight()} className="text-white 2xl absolute -right-7 top-[35%] z-50 w-10 h-10 bg-gray-800 hover:bg-gray-700 cursor-pointer rounded-full flex items-center justify-center"><FaGreaterThan className="self-center"/></div>
+           <div onClick={() => scrollRight()} className="text-white 2xl absolute -right-7 top-[35%] z-10 w-10 h-10 bg-gray-800 hover:bg-gray-700 cursor-pointer rounded-full flex items-center justify-center"><FaGreaterThan className="self-center"/></div>
 
     </div>
   );

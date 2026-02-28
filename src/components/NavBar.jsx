@@ -8,7 +8,7 @@ function NavBar() {
     setShowMenu(!showMenu);
   }
   return (
-    <nav className="flex  justify-between items-center z-50 text-white bg-transparent md:px-15 px-5 md:pt-6 pt-2 pb-6  text-xl absolute top-0 left-0 w-full">
+    <nav className="flex  justify-between items-center z-50 text-white bg-transparent md:px-15 px-5 md:pt-6 pt-2  text-xl absolute top-0 left-0 w-full">
       <NavLink to='/' className="flex justify-center items-center h-full">
         <img className="w-15" src="/logo.png" alt="logo" />
         <span className={`text-2xl text-white font-bold  md:block hidden`}>

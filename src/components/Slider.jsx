@@ -72,7 +72,7 @@ function Slider({ movies, heading }) {
       {/* large screen version ends here */}
 
 {/* mobile starts here */}
-      <div className="md:hidden flex relative w-full overflow-hidden">
+      <div className="md:hidden flex relative w-full gap-2 overflow-hidden">
         {movies.map((movie, index) => {
           return (
             <NavLink
@@ -90,9 +90,9 @@ function Slider({ movies, heading }) {
               <div className="absolute bottom-0 left-0 p-1">
                 {/* used grid and place items center plus col-start-1 and row-start-1 to stack the things on top of each other. */}
                 <div className=" relative w-[3.8rem] h-[3.8rem]  grid place-items-center"> 
-                  <GiFlowerStar className=" text-slate-200 text-[3.8em] row-start-1  z-10 col-start-1"/>
+                  <GiFlowerStar className=" text-white text-[3.8em] row-start-1  z-10 col-start-1"/>
                   {/* needed this circle to cover the hole in the flower icon */}
-                  <div className="w-4 h-4 rounded-full bg-slate-200 row-start-1 z-20 col-start-1"></div>
+                  <div className="w-5 h-5 rounded-full bg-white row-start-1 z-20 col-start-1"></div>
                 <p className=" text-2xl font-bold text-pink-600 row-start-1 col-start-1 z-30">
                 {index + 1 < 10 ? `0${index + 1}` : index + 1}
 

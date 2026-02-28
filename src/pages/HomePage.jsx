@@ -77,7 +77,7 @@ function HomePage() {
   {/* top rated movies and series */}
         <div className="flex justify-between items-center md:px-10 px-5 ">
         <h3 className="text-2xl text-white font-bold">Top Rated</h3>
-        <NavLink className={`text-lg text-white bg-gray-700 px-3 py-0.5 flex items-center h-fit rounded-2xl hover:bg-pink-600`} to={"movies"}>View more</NavLink>
+        
       </div>
        {
         customTopRated ? <Slider2 movies={customTopRated.sort((a,b) => b.vote_average - a.vote_average)}/>: null
@@ -85,7 +85,10 @@ function HomePage() {
      
      {/* airing today section */}
       <section className="w-[100vw] h-fit md:px-10 pt-5">
-        <p className="text-white text-2xl font-bold px-5 md:px-0">Airing Today</p>
+        <div className="flex justify-between">
+          <p className="text-white text-2xl font-bold px-5 md:px-0">Airing Today</p>
+        <NavLink className={`text-lg text-white bg-gray-700 px-3 py-0.5 flex items-center h-fit rounded-2xl hover:bg-pink-600`} to={"series"}>View more</NavLink>
+        </div>
         <div className="flex flex-wrap justify-center py-6 md:gap-x-5 gap-2 md:gap-y-15 ">
       
       {airingTodayTV? airingTodayTV.map((movie) =>{
@@ -98,7 +101,10 @@ function HomePage() {
       </section>
 {/* upcoming */}
       <section className="w-[100vw] h-fit md:px-10 pt-5">
+        <div className="flex justify-between">
         <p className="text-white font-bold text-2xl px-5 md:px-0">Upcoming</p>
+        <NavLink className={`text-lg text-white bg-gray-700 px-3 py-0.5 flex items-center h-fit rounded-2xl hover:bg-pink-600`} to={"movies"}>View more</NavLink>
+        </div>
         <div className="flex flex-wrap  justify-center py-6 md:gap-x-5 gap-2 md:gap-y-15">
       
       {upcomming? upcomming.map((movie) =>{
