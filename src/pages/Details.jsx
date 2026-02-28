@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Footer from "../components/Footer";
 
 import { useParams, useLocation, useNavigate } from "react-router";
 
@@ -17,7 +18,7 @@ function Details() {
     path = "movie";
   }
 
-  console.log("location: " + path);
+
   const [loading, setLoading] = useState(true);
   const [details, setDetails] = useState([]);
   const [casts, setCasts] = useState([]);
@@ -37,7 +38,7 @@ function Details() {
       const res = await axios.request(options);
 
       setter(res.data);
-      console.log(res.data);
+     
       setLoading(false);
     } catch (err) {
       console.error(err);
@@ -49,7 +50,7 @@ function Details() {
     getMovies(`https://api.themoviedb.org/3/${path}/${id}/credits`, setCasts)
   }, [path,id]);
 
- 
+
   return (
     <div className="bg-slate-800 pt-20 flex flex-col  min-h-screen ">
     <div className="w-screen h-fit  flex items-center md:px-5  md:py-10">
@@ -188,7 +189,7 @@ function Details() {
       <h4 className="text-3xl text-white mb-5">Crew</h4>
       <div className="flex md:gap-6 gap-2 overflow-x-auto scrollbar-hide py-4 pl-4">
         {casts.crew.map((actor) => (
-          <div key={actor.id} className="flex flex-col items-center flex-shrink-0">
+          <div key={actor.id + actor.job} className="flex flex-col items-center flex-shrink-0">
             <img
               src={
                 actor.profile_path
@@ -211,6 +212,7 @@ function Details() {
   ) : <p className="text-slate-700">No crew to display..</p>}
 </section>
 
+<Footer/>
         </div>
 
     
