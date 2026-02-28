@@ -16,10 +16,11 @@
     color: white;
     display: flex;
     flex-direction: column;
+    height: 450px;
     gap: 10px;
-    background-color: rgba(128, 128, 128, 0.229);
+    background-color: rgba(128, 128, 128, 0.29);
     padding: 1rem;
-    border-radius: 5px;
+    
 
 
 

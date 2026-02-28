@@ -61,7 +61,7 @@ function Carousel({ trending }) {
                     {movie.title ? movie.title : movie.name}
                   </h2>
 
-                  <p className="md:text-lg text-sm hidden md:block lg:text-2xl text-center md:text-left line-clamp-6">
+                  <p className="md:text-lg text-sm hidden md:block lg:text-xl md:font-light text-center md:text-left line-clamp-6">
                     {movie.overview}
                   </p>
                   <div className="flex flex-wrap gap-6">

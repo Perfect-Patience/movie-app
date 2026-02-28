@@ -9,12 +9,12 @@ function NavBar() {
   }
   return (
     <nav className="flex  justify-between items-center z-50 text-white bg-transparent md:px-15 px-5 md:pt-6 pt-2 pb-6  text-xl absolute top-0 left-0 w-full">
-      <div className="flex justify-center items-center h-full">
+      <NavLink to='/' className="flex justify-center items-center h-full">
         <img className="w-15" src="/logo.png" alt="logo" />
-        <span className={`text-2xl font-bold  md:block hidden`}>
+        <span className={`text-2xl text-white font-bold  md:block hidden`}>
           CinW<span className="text-3xl text-red-600">^</span>tch
         </span>
-      </div>
+      </NavLink>
 
       <ul className="md:flex space-x-4 font-semibold hidden ">
         <NavLink to="/" className={``}>

@@ -47,15 +47,28 @@ function Details() {
   useEffect(() => {
     getMovies(`https://api.themoviedb.org/3/${path}/${id}`, setDetails);
     getMovies(`https://api.themoviedb.org/3/${path}/${id}/credits`, setCasts)
-  }, [path]);
+  }, [path,id]);
 
-  console.log(id);
+ 
   return (
-    <div className="bg-slate-800 pt-20 flex flex-col lg:px-45 min-h-screen ">
-    <div className="w-screen h-fit  flex items-center">
+    <div className="bg-slate-800 pt-20 flex flex-col  min-h-screen ">
+    <div className="w-screen h-fit  flex items-center md:px-5  md:py-10">
+       {/* overlay and bg picture */}
+          <div className="absolute top-0 right-0 md:w-[80vw] h-[100vh] w-[100vw]  ">
+            <div className="relative w-full h-full">
+              <div  className=" absolute inset-0  w-full h-full bg-[radial-gradient(circle,rgba(0,0,0,0.7)_20%,#1e293d_90%)]"></div>
+              <img className="w-full h-full object-cover rounded-2xl" src={`${import.meta.env.VITE_TMDB_API_IMAGE}${
+                details.backdrop_path
+              }`}/>
+            </div>
+          </div>
       {details ? (
-        <div className="flex h-fit mx-auto gap-25 relative  ">
-          <div className="w-1/7  ">
+        <div className="flex w-full h-fit relative mx-5 justify-between  flex-wrap ">
+         
+         
+         <div className="flex gap-10 z-20">
+           {/* poster image */}
+          <div className="md:w-[300px] md:block hidden ">
             <img
               className="w-[100%] object-cover rounded-xl"
               src={`${import.meta.env.VITE_TMDB_API_IMAGE}${
@@ -64,43 +77,43 @@ function Details() {
               alt="details.title"
             />
           </div>
-
-          <div className=" flex flex-col gap-8 h-[100%] justify-start relative ">
-            <h4 className="text-7xl text-white ">
+{/* details to the side of poster image */}
+          <div className=" flex flex-col gap-4.5 h-[100%] justify-start relative ">
+            <h4 className="text-4xl font-bold text-white ">
               {details.title ? details.title : details.name}
             </h4>
-            <p className="text-3xl text-amber-400"> {details.tagline}</p>
-            <p className="text-lg text-white max-w-[600px] ">{details.overview}</p>
+            <p className="text-xl text-amber-400 font-sans"> {details.tagline}</p>
+            <p className="text- text-white  md:text-xl text-xs max-w-[600px] ">{details.overview}</p>
 
-            <div className=" flex flex-col gap-5">
+            <div className=" flex flex-col gap-2.5">
               <div className="flex gap-3 text-gray-300">
-                <p className="text-white text-lg ">
+                <p className="text-white font-semibold text-[15px] ">
                   Seasons:{" "}
                   <span className=" text-pink-300 font-bold ml-2">
                     {details.number_of_seasons}
                   </span>
                 </p>{" "}
                 |
-                <p className="text-white text-lg ">
+                <p className="text-white font-semibold text-[15px] ">
                   Episodes:{" "}
                   <span className=" text-pink-300 font-bold ml-2">
                     {details.number_of_episodes}
                   </span>
                 </p>{" "}
                 |
-                <p className="text-white text-lg ">
+                <p className="text-white font-semibold text-[15px] ">
                   Rating:{" "}
                   <span className="text-pink-300">{details.vote_average}</span>
                 </p>
               </div>
 
-              <div className="flex gap-5">
-                <p className="text-white">Genres : </p>{" "}
+              <div className="flex gap-5 flex-wrap ">
+                <p className="text-white">Genres: </p>{" "}
                 <div className="flex gap-3 flex-wrap">
                   {details.genres
                     ? details.genres.map((item) => (
                         <button
-                          className=" min-w-[100px] px-3 py-2 bg-gray-700 flex-shrink-0 text-white rounded-full"
+                          className=" min-w-[100px] text-xs  md:text-[1rem] px-3  py-1.5 bg-gray-700 flex-shrink-0 text-white rounded-full"
                           key={item.id}
                         >
                           {item.name}
@@ -110,19 +123,21 @@ function Details() {
                 </div>
               </div>
             </div>
-            <div className="flex gap-x-8">
+            <div className="flex md:gap-x-8 gap-2 mt-5">
               <a
                 href={details.homepage}
-                className="bg-pink-400 text-white  py-2 rounded-3xl text-xl w-[150px] border border-pink-300 text-center  "
+                className="bg-pink-400 text-white  py-2 rounded-3xl text-lg font-semibold md:w-[150px] w-[120px] text-center flex justify-center items-center "
               >
                 Watch Now
               </a>
-              <a onClick={() => navigate(`/${loc}/trailer/${id}`)} className=" border border-white w-[150px]  text-xl text-center py-2 rounded-3xl text-white">
+              <a onClick={() => navigate(`/${loc}/trailer/${id}`)} className=" border border-white md:w-[150px]  w-[120px]  text-lg flex justify-center items-center text-center py-1 rounded-3xl text-white">
                 Trailer
               </a>
             </div>
           </div>
-           <div className='min-w-[350px]'>
+         </div>
+          {/* extra info on the far right */}
+           {/* <div className=' absolute  right-0 top-0 min-w-[300px] min-h-[100vh] z-20'>
                     <ul className='sideDetails'>
                       <li>Original Title <span>{details.original_name? details.original_name : details.original_title}</span></li>
                       {details.languages? <li>Languages: <span>{details.languages.map((lang)=>(lang) )}</span></li>: null }
@@ -134,16 +149,17 @@ function Details() {
                       {details.created_by? <li>Authors: <span>{details.created_by.map((auth)=>(<span>{auth.name} &nbsp;<br/></span>))}</span></li>: null }
                       <li></li>
                     </ul>
-          </div>
+          </div> */}
+         
         </div>
       ) : null}
 
 
  
     </div>
-         <section className="mt-20">
-          <h4 className="text-3xl text-white mb-10">Casts</h4>
-<div className="flex gap-6 overflow-x-auto scrollbar-hide p-4">
+         <section className="mt-20 z-10 md:mx-10 mx-5">
+          <h4 className="text-3xl text-white mb-5">Casts</h4>
+<div className="flex md:gap-6 gap-2 overflow-x-auto scrollbar-hide p-4">
       {casts.cast? casts.cast.map((actor) => (
         <div key={actor.id} className="flex flex-col items-center flex-shrink-0">
           <img
@@ -153,7 +169,7 @@ function Details() {
                 : "/no-profile.png" // fallback image
             }
             alt={actor.name}
-            className="w-20 h-20 rounded-full object-cover border-2 border-gray-300"
+            className="md:w-30 md:h-30 w-15 h-15 rounded-full object-cover border-2 border-gray-300"
           />
           <p className="text-white text-sm mt-2 text-center truncate w-20">
             {actor.name}
@@ -166,11 +182,11 @@ function Details() {
     </div>
         </section>
 
-       <section className="mt-20">
+       <section className="mt-10 md:mx-10 mx-5">
   {casts.crew ? (
     <>
-      <h4 className="text-3xl text-white mb-10">Crew</h4>
-      <div className="flex gap-6 overflow-x-auto scrollbar-hide p-4">
+      <h4 className="text-3xl text-white mb-5">Crew</h4>
+      <div className="flex md:gap-6 gap-2 overflow-x-auto scrollbar-hide py-4 pl-4">
         {casts.crew.map((actor) => (
           <div key={actor.id} className="flex flex-col items-center flex-shrink-0">
             <img
@@ -180,7 +196,7 @@ function Details() {
                   : "/no-profile.png"
               }
               alt={actor.name}
-              className="w-20 h-20 rounded-full object-cover border-2 border-gray-300"
+              className="md:w-30 md:h-30 w-15 h-15 rounded-full object-cover border-2 border-gray-300"
             />
             <p className="text-white text-sm mt-2 text-center truncate w-20">
               {actor.name}

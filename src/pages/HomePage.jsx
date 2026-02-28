@@ -6,6 +6,7 @@ import Slider from "../components/Slider";
 import Tile from "../components/Tile";
 import Slider2 from "../components/Slider2";
 import { NavLink, useFetcher } from "react-router";
+import Footer from "../components/Footer";
 
 function HomePage() {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -108,8 +109,11 @@ function HomePage() {
       </div>
       </section>
 
+<Footer/>
     
     </div>
+
+  
   );
 }
 

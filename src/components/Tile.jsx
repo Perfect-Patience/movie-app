@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+
 import { useNavigate } from 'react-router';
 
 
 import { FaStarHalfAlt } from "react-icons/fa";
 function Tile({movie ,category}) {
-  const [showHover, setShowHover] = useState(false);
+
   const navigate = useNavigate()
 
 
